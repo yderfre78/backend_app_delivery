@@ -2,7 +2,7 @@ const categoriesController = require('../controllers/categoriesController');
 const passport = require('passport');
 
 
-module.exports = (app, upload) => {
+module.exports = (app, ) => {
     //GET -> OBTENER DATOS
     //POST -> ALMACENAR DATOS
     //PUT -> ACTUALIZAR DATOS

@@ -8,11 +8,11 @@ Category.create = (category, result) => {
         categories(
             name,
             description,
-            creates_at,
+            created_at,
             updated_at
 
         )
-    VALUES(?,?,?,?)
+    VALUES(?, ?, ?, ?)
     `;
     db.query(
         sql, [
@@ -33,3 +33,4 @@ Category.create = (category, result) => {
         }
     )
 }
+module.exports = Category;

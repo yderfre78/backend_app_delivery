@@ -4,7 +4,7 @@ module.exports = {
     create(req, res) {
         const category = req.body;
 
-        Category.create(category, (err, data) => {
+        Category.create(category, (err, id) => {
             if (err) {
                 return res.status(501).json({
                     success: false,
