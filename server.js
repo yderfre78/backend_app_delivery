@@ -12,6 +12,7 @@ const multer = require('multer');
 IMPORTAR RUTAS
 */
 const usersRoutes = require('./routes/userRoutes');
+const categoriesRoutes = require('./routes/categoriesRoutes');
 
 const port = process.env.PORT || 3000;
 

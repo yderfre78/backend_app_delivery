@@ -2,10 +2,10 @@ const db = require('../config/config');
 const brypt = require('bcryptjs');
 
 const User = {};
-User.finById = (id, result) => {
+User.findById = (id, result) => {
     const sql = `
     SELECT
-    U.id,
+    CONVERT(U.id, char) AS id,
     U.email,
     U.name,
     U.lastname,
@@ -31,11 +31,11 @@ INNER JOIN
     roles AS R
 ON
     UHR.id_rol = R.id
-    WHERE
-    email = ?
+WHERE
+    U.id = ? 
 
 GROUP BY
-    U.id
+    U.id 
     `;
     db.query(
         sql, [
@@ -155,9 +155,9 @@ User.update = (user, result) => {
         lastname = ?,
         phone = ?,
         image = ?,
-        updated_at ? 
+        updated_at = ? 
     WHERE
-    id = ?
+        id = ?
     `;
 
     db.query(
@@ -168,20 +168,16 @@ User.update = (user, result) => {
             user.image,
             new Date(),
             user.id
-
         ],
         (err, res) => {
             if (err) {
                 console.log('Error: ', err);
                 result(err, null);
             } else {
-                console.log('UsuarioAalizado ', res.insertId);
+                console.log('Usuario Actualizado ', user.id);
                 result(null, user.id);
-
             }
         },
-
-
     )
 }
 
@@ -189,13 +185,13 @@ User.updateWithoutImage = (user, result) => {
         const sql = `
     UPDATE
         users
-        SET
+    SET
         name = ?,
         lastname = ?,
         phone = ?,
-        updated_at ? 
+        updated_at = ? 
     WHERE
-id = ?
+       id = ?
 `;
 
         db.query(
@@ -212,7 +208,7 @@ id = ?
                     console.log('Error: ', err);
                     result(err, null);
                 } else {
-                    console.log('Usuario Actualizado ', res.insertId);
+                    console.log('Usuario Actualizado ', user.id);
                     result(null, user.id);
 
                 }
