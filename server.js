@@ -43,7 +43,7 @@ categoriesRoutes(app, );
 
 
 
-server.listen(3000, '192.168.0.21' || 'localhost', function() {
+server.listen(3000, '192.168.0.15' || 'localhost', function() {
     console.log('Aplicacion de NodeJS ' + port + ' Iniciada...')
 });
 
