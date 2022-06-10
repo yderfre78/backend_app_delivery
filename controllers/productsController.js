@@ -1,6 +1,6 @@
-const Product = require("../models/produt");
-const storage = requiere("../utils/cloud_storage");
-const asyncForEach = requiere("../utils/asyncForEach");
+const Product = require("../models/product");
+const storage = require("../utils/cloud_storage");
+const asyncForEach = require("../utils/async_foreach");
 
 module.exports = {
   create(req, res) {

@@ -22,16 +22,17 @@ Product.create = (product, result) => {
   db.query(
     sql,
     [
-      category.name,
-      category.price,
-      category.image1,
-      category.image2,
-      category.image3,
-      category.id_category,
-      category.description,
+      product.name,
+      product.description,
+      product.price,
+      product.image1,
+      product.image2,
+      product.image3,
+      product.id_category,
       new Date(),
       new Date(),
     ],
+    console.log(product),
     (err, res) => {
       if (err) {
         console.log("Error: ", err);
